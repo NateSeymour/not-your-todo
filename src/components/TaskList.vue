@@ -1,20 +1,24 @@
 <template>
-    <div v-for="task in $store.state.tasks" :key="task.id">
-        {{ task.description }}
+    <div class="task-list">
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Task } from '@/tasker';
+import { GetAllTasksRB } from '@/tasker';
+import { mapState } from 'vuex';
+import TaskItem from '@/components/TaskItem.vue';
 
 export default defineComponent({
     name: 'TaskList',
+    components: { TaskItem },
     mounted() {
         fetch('http://api.notyoursoftware.com/v1/public/tasker/task/all')
             .then((response) => response.json())
-            .then((data: Task[]) => this.$store.commit('setTasks', data));
+            .then((data: GetAllTasksRB) => this.$store.commit('setTasks', data.tasks));
     },
+    computed: mapState(['tasks']),
 });
 </script>
 

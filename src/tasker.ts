@@ -3,3 +3,7 @@ export interface Task {
     description: string,
     completed: boolean,
 }
+
+export interface GetAllTasksRB {
+    tasks: Task[],
+}

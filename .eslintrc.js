@@ -27,5 +27,13 @@ module.exports = {
             alignAttributesVertically: true,
             ignores: [],
         }],
+        'vuejs-accessibility/label-has-for': ['error', {
+            required: {
+                some: ['nesting', 'id'],
+            },
+        }],
+        'no-param-reassign': 'off',
+        'max-len': 'off',
+        'no-plusplus': 'off',
     },
 };
