@@ -14,7 +14,7 @@ export default defineComponent({
     name: 'TaskList',
     components: { TaskItem },
     mounted() {
-        fetch('http://api.notyoursoftware.com/v1/public/tasker/task/all')
+        fetch('https://api.notyoursoftware.com/v1/public/tasker/task/all')
             .then((response) => response.json())
             .then((data: GetAllTasksRB) => this.$store.commit('setTasks', data.tasks));
     },

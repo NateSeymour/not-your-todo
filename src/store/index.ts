@@ -48,7 +48,7 @@ export default createStore({
 
             state.sessionCreatedTaskCount++;
 
-            fetch('http://api.notyoursoftware.com/v1/public/tasker/task', {
+            fetch('https://api.notyoursoftware.com/v1/public/tasker/task', {
                 method: 'POST',
                 body: JSON.stringify({
                     description: tempTask.description,
